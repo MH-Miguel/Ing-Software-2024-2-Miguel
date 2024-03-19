@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ver Rentas</title>
+</head>
+<body>
+    <h1>Rentas Registradas</h1>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>ID Usuario</th>
+                <th>ID Película</th>
+                <th>Fecha Renta</th>
+                <th>Días de Renta</th>
+                <th>Estado</th>
+                <th>Acción</th> <!-- Nueva columna -->
+            </tr>
+        </thead>
+        <tbody>
+            {% for renta in rentas %}
+            <tr>
+                <td>{{ renta.idRentar }}</td>
+                <td>{{ renta.idUsuario }}</td>
+                <td>{{ renta.idPelicula }}</td>
+                <td>{{ renta.fecha_renta }}</td>
+                <td>{{ renta.dias_de_renta }}</td>
+                <td>{% if renta.estatus %}<span style="color: green">Entregada</span>{% else %}<span style="color: red">Pendiente</span>{% endif %}</td>
+                <td>
+                    <form action="{{ url_for('renta.actualizar_renta', id_renta=renta.idRentar) }}" method="POST">
+                        <button type="submit">{% if renta.estatus %}Marcar como Pendiente{% else %}Marcar como Entregada{% endif %}</button>
+                    </form>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>

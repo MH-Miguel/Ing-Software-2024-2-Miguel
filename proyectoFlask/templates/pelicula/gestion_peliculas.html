@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestión de Películas</title>
+</head>
+<body>
+    <h1>Gestión de Películas</h1>
+    <ul>
+        <li><a href="{{ url_for('pelicula.ver_peliculas') }}">Ver Películas</a></li>
+        <li><a href="{{ url_for('pelicula.agregar_pelicula') }}">Agregar Película</a></li>
+        <li><a href="{{ url_for('pelicula.ver_peliculas') }}">Editar o Eliminar Película</a></li>
+    </ul>
+</body>
+</html>

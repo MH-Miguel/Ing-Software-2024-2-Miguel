@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Editar Película</title>
+</head>
+<body>
+    <h1>Editar Película</h1>
+    <form method="POST" action="{{ url_for('pelicula.editar_pelicula', id_pelicula=pelicula.idPelicula) }}">
+        <label for="nombre">Nombre:</label>
+        <input type="text" name="nombre" value="{{ pelicula.nombre }}" required><br>
+        <label for="genero">Género:</label>
+        <input type="text" name="genero" value="{{ pelicula.genero }}"><br>
+        <label for="duracion">Duración (minutos):</label>
+        <input type="number" name="duracion" value="{{ pelicula.duracion }}" required><br>
+        <label for="inventario">Inventario:</label>
+        <input type="number" name="inventario" value="{{ pelicula.inventario }}"><br>
+        <button type="submit">Guardar Cambios</button>
+    </form>
+</body>
+</html>

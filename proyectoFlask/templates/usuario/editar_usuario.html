@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Editar Usuario</title>
+</head>
+<body>
+    <h1>Editar Usuario</h1>
+    <form method="POST" action="{{ url_for('usuario.editar_usuario', id_usuario=usuario.idUsuario) }}">
+        <label for="nombre">Nombre:</label>
+        <input type="text" name="nombre" value="{{ usuario.nombre }}" required><br>
+        <label for="ap_pat">Apellido Paterno:</label>
+        <input type="text" name="ap_pat" value="{{ usuario.apPat }}" required><br>
+        <label for="ap_mat">Apellido Materno:</label>
+        <input type="text" name="ap_mat" value="{{ usuario.apMat if usuario.apMat else '' }}"><br>
+        <label for="email">Correo Electrónico:</label>
+        <input type="email" name="email" value="{{ usuario.email }}" required><br>
+        <button type="submit">Guardar Cambios</button>
+    </form>
+</body>
+</html>
